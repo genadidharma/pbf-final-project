@@ -75,18 +75,6 @@ export class EditProduk extends React.Component{
                             </tr>
                             </thead>
                             <tbody>
-                                {/* <tr>
-                                    <td scope="col">Lampu Kota Avanza</td>
-                                    <td scope="col">Aksesoris</td>
-                                    <td scope="col">23</td>
-                                    <td scope="col">Rp.250.0000</td>
-                                    <td scope="col">
-                                        <ButtonGroup>
-                                            <Button className="btn btn-primary">Edit</Button>
-                                            <Button className="btn btn-danger">Hapus</Button>
-                                        </ButtonGroup>
-                                    </td>
-                                </tr> */}
                                 {this.state.produkData.map((row, index)=>{
                                     return(
                                     <tr>
