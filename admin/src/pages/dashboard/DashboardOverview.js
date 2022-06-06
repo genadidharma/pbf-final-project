@@ -11,7 +11,7 @@ import { trafficShares, totalOrders } from "../../data/charts";
 export default () => {
   return (
     <>
-      <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+      {/* <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
         <Dropdown className="btn-toolbar">
           <Dropdown.Toggle as={Button} variant="primary" size="sm" className="me-2">
             <FontAwesomeIcon icon={faPlus} className="me-2" />New Task
@@ -39,7 +39,7 @@ export default () => {
           <Button variant="outline-primary" size="sm">Share</Button>
           <Button variant="outline-primary" size="sm">Export</Button>
         </ButtonGroup>
-      </div>
+      </div> */}
 
       <Row className="justify-content-md-center">
         <Col xs={12} className="mb-4 d-none d-sm-block">
@@ -78,17 +78,17 @@ export default () => {
           />
         </Col>
 
-        <Col xs={12} sm={6} xl={4} className="mb-4">
+        {/* <Col xs={12} sm={6} xl={4} className="mb-4">
           <CircleChartWidget
             title="Traffic Share"
             data={trafficShares} />
-        </Col>
+        </Col> */}
       </Row>
 
       <Row>
         <Col xs={12} xl={12} className="mb-4">
           <Row>
-            <Col xs={12} xl={8} className="mb-4">
+            {/* <Col xs={12} xl={8} className="mb-4">
               <Row>
                 <Col xs={12} className="mb-4">
                   <PageVisitsTable />
@@ -102,9 +102,9 @@ export default () => {
                   <ProgressTrackWidget />
                 </Col>
               </Row>
-            </Col>
+            </Col> */}
 
-            <Col xs={12} xl={4}>
+            {/* <Col xs={12} xl={4}>
               <Row>
                 <Col xs={12} className="mb-4">
                   <BarChartWidget
@@ -122,7 +122,7 @@ export default () => {
                   <AcquisitionWidget />
                 </Col>
               </Row>
-            </Col>
+            </Col> */}
           </Row>
         </Col>
       </Row>

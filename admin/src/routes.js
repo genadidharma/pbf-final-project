@@ -16,6 +16,11 @@ export const Routes = {
     Lock: { path: "/examples/lock" },
     NotFound: { path: "/examples/404" },
     ServerError: { path: "/examples/500" },
+    EditProduk: {path: "/editproduk"},
+    TambahProduk: {path: "/editproduk/tambahproduk"},
+    // UpdateProduk: {path: "/editproduk/updateproduk"},
+
+
 
     // docs
     DocsOverview: { path: "/documentation/overview" },

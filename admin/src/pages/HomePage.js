@@ -48,6 +48,9 @@ import Tables from "./components/Tables";
 import Tabs from "./components/Tabs";
 import Tooltips from "./components/Tooltips";
 import Toasts from "./components/Toasts";
+import EditProduk from "../pages//Produk/EditProduk"
+import TambahProdukPage from '../pages/Produk/TambahProdukPage';
+import EditProdukPage from './Produk/EditProdukPage';
 
 const RouteWithLoader = ({ component: Component, ...rest }) => {
   const [loaded, setLoaded] = useState(false);
@@ -115,6 +118,10 @@ export default () => (
     <RouteWithSidebar exact path={Routes.Transactions.path} component={Transactions} />
     <RouteWithSidebar exact path={Routes.Settings.path} component={Settings} />
     <RouteWithSidebar exact path={Routes.BootstrapTables.path} component={BootstrapTables} />
+    <RouteWithSidebar exact path={Routes.EditProduk.path} component={EditProduk}/>
+    <RouteWithSidebar exact path={Routes.TambahProduk.path} component={TambahProdukPage}/>
+    {/* <RouteWithSidebar exact path={Routes.UpdateProduk.path} component={EditProdukPage}/> */}
+
 
     {/* components */}
     <RouteWithSidebar exact path={Routes.Accordions.path} component={Accordion} />
