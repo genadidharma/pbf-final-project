@@ -51,6 +51,8 @@ import Toasts from "./components/Toasts";
 import EditProduk from "../pages//Produk/EditProduk"
 import TambahProdukPage from '../pages/Produk/TambahProdukPage';
 import EditProdukPage from './Produk/EditProdukPage';
+import Stok from './Stok/Stok';
+import TambahStok from './Stok/TambahStok';
 
 const RouteWithLoader = ({ component: Component, ...rest }) => {
   const [loaded, setLoaded] = useState(false);
@@ -120,6 +122,8 @@ export default () => (
     <RouteWithSidebar exact path={Routes.BootstrapTables.path} component={BootstrapTables} />
     <RouteWithSidebar exact path={Routes.EditProduk.path} component={EditProduk}/>
     <RouteWithSidebar exact path={Routes.TambahProduk.path} component={TambahProdukPage}/>
+    <RouteWithSidebar exact path={Routes.Stok.path} component={Stok}/>
+    <RouteWithSidebar exact path={Routes.TambahStok.path} component={TambahStok}/>
     {/* <RouteWithSidebar exact path={Routes.UpdateProduk.path} component={EditProdukPage}/> */}
 
 
