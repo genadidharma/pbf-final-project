@@ -6,8 +6,7 @@ import { ref, update ,set} from "firebase/database";
 import {db} from "../../Database/config" 
 import { useHistory, useParams , useLocation } from "react-router-dom";
 
-
-const EditProdukPage = (props) => {
+const EditProdukPage = () => {
         const [namaProduk , setNamaProduk] = useState("");
         const [jenisProduk , setJenisProduk] = useState("");
         const [qtyProduk , setQtyProduk] = useState("");
@@ -27,7 +26,6 @@ const EditProdukPage = (props) => {
         const handleChangeHarga = (e) =>{
             setHargaProduk(e.target.value);
         }
-
         const handleChange = () => {
             update(ref(db, `/produk/${params.id}`),{
                 namaProduk,
@@ -65,7 +63,7 @@ const EditProdukPage = (props) => {
                         <Form.Control type="text" id="harga" value={hargaProduk} onChange={handleChangeHarga} required/>
                     </Form.Group>
 
-                    <Button className="btn btn-success mt-3" type="submit" onClick={handleChange}>Tambahkan Sekarang</Button>
+                    <Button className="btn btn-success mt-3" type="submit" onClick={handleChange}>Edit Barang</Button>
                 </Form>
             </div>
         )
