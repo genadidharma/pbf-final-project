@@ -15,6 +15,8 @@ export default () => {
     const [jenisProduk , setJenisProduk] = useState("");
     const [qtyProduk , setQtyProduk] = useState("");
     const [hargaProduk , setHargaProduk] = useState("");
+    // const [fotoProduk , setFotoProduk] = useState("");
+
 
     const handleChangeNama = (e) =>{
         setNamaProduk(e.target.value);
@@ -28,6 +30,9 @@ export default () => {
     const handleChangeHarga = (e) =>{
         setHargaProduk(e.target.value);
     }
+    // const handleChangeFoto = (e) =>{
+    //     setHargaProduk(e.target.files[0]);
+    // }
     const addToDatabase=()=>{
         const uuid = uid();
         set(ref(db,`produk/${uuid}`),{
@@ -55,6 +60,7 @@ export default () => {
                                 <option value="Aksesoris">Aksesoris</option>
                                 <option value="Part Mesin">Part Mesin</option>
                                 <option value="Body Kit">Body Kit</option>
+                                <option value="Ban">Ban</option>
                             </select>
                         </div>
                     </Form.Group>

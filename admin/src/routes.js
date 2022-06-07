@@ -22,7 +22,7 @@ export const Routes = {
     TambahJenisProduk: {path: "/jenis-produk/tambah"},
     HapusJenisProduk: {path: "/jenis-produk/hapus"},
     EditJenisProduk: {path: "/jenis-produk/edit/:id"},
-    // UpdateProduk: {path: "/editproduk/updateproduk"},
+    UpdateProduk: {path: "/updateproduk/:id"},
 
 
 
