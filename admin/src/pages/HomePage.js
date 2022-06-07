@@ -50,6 +50,9 @@ import Tooltips from "./components/Tooltips";
 import Toasts from "./components/Toasts";
 import EditProduk from "../pages//Produk/EditProduk"
 import TambahProdukPage from '../pages/Produk/TambahProdukPage';
+import JenisProduk from './JenisProduk/JenisProduk';
+import TambahJenisProduk from './JenisProduk/TambahJenisProduk';
+import EditJenisProduk from './JenisProduk/EditJenisProduk';
 import EditProdukPage from '../pages/Produk/EditProdukPage';
 
 const RouteWithLoader = ({ component: Component, ...rest }) => {
@@ -120,6 +123,9 @@ export default () => (
     <RouteWithSidebar exact path={Routes.BootstrapTables.path} component={BootstrapTables} />
     <RouteWithSidebar exact path={Routes.EditProduk.path} component={EditProduk}/>
     <RouteWithSidebar exact path={Routes.TambahProduk.path} component={TambahProdukPage}/>
+    <RouteWithSidebar exact path={Routes.JenisProduk.path} component={JenisProduk}/>
+    <RouteWithSidebar exact path={Routes.TambahJenisProduk.path} component={TambahJenisProduk}/>
+    <RouteWithSidebar exact path={Routes.EditJenisProduk.path} component={EditJenisProduk}/>
     <RouteWithSidebar exact path={Routes.UpdateProduk.path} component={EditProdukPage}/>
 
 

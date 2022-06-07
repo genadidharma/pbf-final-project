@@ -6,13 +6,14 @@ import { getDatabase } from 'firebase/database';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD1EdwRxmXujfDyWz9K8tnXs8xcbb4CBWg",
-  authDomain: "tugas-besar-aece5.firebaseapp.com",
-  databaseURL: "https://tugas-besar-aece5-default-rtdb.firebaseio.com",
-  projectId: "tugas-besar-aece5",
-  storageBucket: "tugas-besar-aece5.appspot.com",
-  messagingSenderId: "142837219646",
-  appId: "1:142837219646:web:f91cf7f83c7c6663cbec6f"
+  apiKey: "AIzaSyDb9iEGRfFXCD6BqPeZl7iIIXXfVw67FXE",
+  authDomain: "react-tugas-besar.firebaseapp.com",
+  databaseURL: "https://react-tugas-besar-default-rtdb.firebaseio.com",
+  projectId: "react-tugas-besar",
+  storageBucket: "react-tugas-besar.appspot.com",
+  messagingSenderId: "1062425819537",
+  appId: "1:1062425819537:web:73d4f3ea0c2cb2f76ac230",
+  measurementId: "G-2D23BQHZJF"
 };
 const app = initializeApp(firebaseConfig);
 
