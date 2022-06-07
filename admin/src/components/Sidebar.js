@@ -101,15 +101,17 @@ export default (props = {}) => {
 
               <NavItem title="Dashboard" link={Routes.DashboardOverview.path} icon={faChartPie} />
               <NavItem title="Produk" icon={faShoppingBasket} link={Routes.EditProduk.path} />
-              <CollapsableNavItem eventKey="examples/" title="Transaksi" icon={faHandHoldingUsd}>
+              <NavItem title="Transaksi" icon={faHandHoldingUsd} link={Routes.TransaksiProduk.path} />
+
+              {/* <CollapsableNavItem eventKey="examples/" title="Transaksi" icon={faHandHoldingUsd}>
                 <NavItem title="Pengeluaran" link={Routes.Signin.path} />
                 <NavItem title="Penjualan" link={Routes.Signup.path} />
-                {/* <NavItem title="Statitiska Penjualan" link={Routes.ForgotPassword.path} /> */}
-                {/* <NavItem title="Reset password" link={Routes.ResetPassword.path} />
+                <NavItem title="Statitiska Penjualan" link={Routes.ForgotPassword.path} />
+                <NavItem title="Reset password" link={Routes.ResetPassword.path} />
                 <NavItem title="Lock" link={Routes.Lock.path} />
                 <NavItem title="404 Not Found" link={Routes.NotFound.path} />
-                <NavItem title="500 Server Error" link={Routes.ServerError.path} /> */}
-              </CollapsableNavItem>
+                <NavItem title="500 Server Error" link={Routes.ServerError.path} />
+              </CollapsableNavItem> */}
               {/* <NavItem external title="Calendar" link="https://demo.themesberg.com/volt-pro-react/#/calendar" target="_blank" badgeText="Pro" icon={faCalendarAlt} />
 
 

@@ -51,6 +51,7 @@ import Toasts from "./components/Toasts";
 import EditProduk from "../pages//Produk/EditProduk"
 import TambahProdukPage from '../pages/Produk/TambahProdukPage';
 import EditProdukPage from '../pages/Produk/EditProdukPage';
+import Transaksi from '../pages/transaksi/Transaksi';
 
 const RouteWithLoader = ({ component: Component, ...rest }) => {
   const [loaded, setLoaded] = useState(false);
@@ -121,6 +122,8 @@ export default () => (
     <RouteWithSidebar exact path={Routes.EditProduk.path} component={EditProduk}/>
     <RouteWithSidebar exact path={Routes.TambahProduk.path} component={TambahProdukPage}/>
     <RouteWithSidebar exact path={Routes.UpdateProduk.path} component={EditProdukPage}/>
+    <RouteWithSidebar exact path={Routes.TransaksiProduk.path} component={Transaksi}/>
+
 
 
     {/* components */}

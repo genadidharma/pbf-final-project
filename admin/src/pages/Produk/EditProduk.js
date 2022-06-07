@@ -98,7 +98,7 @@ export class EditProduk extends React.Component{
                             </tr>
                             </thead>
                             <tbody>
-                                {this.state.produkData.map((row, index)=>{
+                                {this.state.produkData.map((row)=>{
                                     return(
                                     <tr>
                                         <td>{row.data.namaProduk}</td>

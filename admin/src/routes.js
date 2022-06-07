@@ -19,6 +19,8 @@ export const Routes = {
     EditProduk: {path: "/editproduk"},
     TambahProduk: {path: "/editproduk/tambahproduk"},
     UpdateProduk: {path: "/updateproduk/:id"},
+    TransaksiProduk: {path: "/transaksi"},
+
 
 
 
