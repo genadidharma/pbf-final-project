@@ -18,10 +18,10 @@ export const Routes = {
     ServerError: { path: "/examples/500" },
     EditProduk: {path: "/editproduk"},
     TambahProduk: {path: "/editproduk/tambahproduk"},
-    Stok: {path: "/stok"},
-    TambahStok: {path: "/stok/tambah"},
-    HapusStok: {path: "/stok/hapus"},
-    EditStok: {path: "/stok/edit"},
+    JenisProduk: {path: "/jenis-produk"},
+    TambahJenisProduk: {path: "/jenis-produk/tambah"},
+    HapusJenisProduk: {path: "/jenis-produk/hapus"},
+    EditJenisProduk: {path: "/jenis-produk/edit/:id"},
     // UpdateProduk: {path: "/editproduk/updateproduk"},
 
 

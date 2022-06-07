@@ -6,51 +6,34 @@ import { Link } from "react-router-dom";
 import { Routes } from "../../routes";
 import { ref, onValue, remove, child, get } from "firebase/database"
 import { db } from "../../Database/config"
+import { useHistory } from "react-router-dom";
 
-export class Stok extends React.Component {
+export class JenisProduk extends React.Component {
     constructor() {
         super();
         this.state = {
-            stokData: []
+            jenisProdukData: []
         }
     }
     componentDidMount() {
-        const stokRef = ref(db, 'stok');
-
-        onValue(stokRef, (snapshot) => {
+        const dbRef = ref(db, 'jenis_produk');
+        onValue(dbRef, (snapshot) => {
             let records = [];
-
-            snapshot.forEach((childSnapshot) => {
-                let produkId = childSnapshot.key
-                let qty = childSnapshot.val().qtyProduk
-
-                const produkRef = ref(db, `produk/${produkId}`)
-
-                onValue(produkRef, (snapshot) => {
-                    snapshot.forEach((childSnapshot) => {
-                        let keyName = childSnapshot.key;
-                        let data = childSnapshot.val()
-                        records.push({ "key": keyName, "data": data });
-                    })
-                })
-
+            snapshot.forEach(childSnapshot => {
+                let keyName = childSnapshot.key;
+                let data = childSnapshot.val();
+                records.push({ "key": keyName, "data": data });
             });
-            this.setState({ stokData: records })
-            console.log(this.state.stokData)
+            this.setState({ jenisProdukData: records })
         });
     }
 
     render() {
-        const handleHapus = (id) => {
-            remove(ref(db, `/stok/${id}`));
-        };
-        const convertToRupiah = (numb) => {
-            const format = numb.toString().split('').reverse().join('');
-            const convert = format.match(/\d{1,3}/g);
-            const rupiah = 'Rp ' + convert.join('.').split('').reverse().join('');
 
-            return rupiah;
-        }
+        const handleHapus = (id) => {
+            remove(ref(db, `/jenis_produk/${id}`));
+        };
+
         return (
             <div>
                 <Form>
@@ -68,11 +51,11 @@ export class Stok extends React.Component {
                         <Card.Header>
                             <Row className="align-items-center">
                                 <Col>
-                                    <h5>Stok Produk Toko</h5>
+                                    <h5>Jenis Produk Toko</h5>
                                 </Col>
                                 <Col className="text-end">
-                                    <Link to={Routes.TambahStok.path}>
-                                        <Button className="btn btn-success" to={Routes.TambahStok.path}><FontAwesomeIcon icon={faPlus} className="me-2" />Tambah Stok</Button>
+                                    <Link to={Routes.TambahJenisProduk.path}>
+                                        <Button className="btn btn-success" to={Routes.TambahJenisProduk.path}><FontAwesomeIcon icon={faPlus} className="me-2" />Tambah Jenis Produk</Button>
                                     </Link>
                                 </Col>
                             </Row>
@@ -80,23 +63,20 @@ export class Stok extends React.Component {
                         <Table responsive className="align-items-center table-flush">
                             <thead className="thead-light">
                                 <tr>
-                                    <th scope="col">Nama Produk</th>
-                                    <th scope="col">Harga Satuan</th>
-                                    <th scope="col">Stok</th>
+                                    <th scope="col">No.</th>
+                                    <th scope="col">Nama</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.state.stokData.map((row, index) => {
-                                    console.log(row)
+                                {this.state.jenisProdukData.map((row, index) => {
                                     return (
-                                        <tr>
-                                            <td>{row.data.namaProduk}</td>
-                                            <td>{row.data.hargaProduk}</td>
-                                            <td>{row.data.qty}</td>
+                                        <tr key={row.data.uuid}>
+                                            <td>{index + 1}</td>
+                                            <td>{row.data.nama}</td>
                                             <td scope="col">
                                                 <ButtonGroup>
-                                                    <Button className="btn btn-primary">Edit</Button>
+                                                    <Link to={`jenis-produk/edit/${row.data.uuid}`}> <Button className="btn btn-primary">Edit</Button> </Link>
                                                     <Button className="btn btn-danger" onClick={() => handleHapus(row.data.uuid)}>Hapus</Button>
                                                 </ButtonGroup>
                                             </td>
@@ -112,4 +92,4 @@ export class Stok extends React.Component {
     }
 }
 
-export default Stok;
+export default JenisProduk;
