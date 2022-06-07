@@ -2,11 +2,12 @@ import React, { Component, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp, faArrowDown, faArrowUp, faEdit, faEllipsisH, faExternalLinkAlt, faEye, faPlus, faSearch, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Nav, Card, Image, Button, Table, Dropdown, ProgressBar, Pagination, ButtonGroup, Form, InputGroup } from '@themesberg/react-bootstrap';
-import { ref, update ,set} from "firebase/database";
+import { ref, update ,set, orderByChild , equalTo ,get} from "firebase/database";
 import {db} from "../../Database/config" 
 import { useHistory, useParams , useLocation } from "react-router-dom";
 
 const EditProdukPage = () => {
+    
         const [namaProduk , setNamaProduk] = useState("");
         const [jenisProduk , setJenisProduk] = useState("");
         const [qtyProduk , setQtyProduk] = useState("");
@@ -51,6 +52,7 @@ const EditProdukPage = () => {
                                 <option value="Aksesoris">Aksesoris</option>
                                 <option value="Part Mesin">Part Mesin</option>
                                 <option value="Body Kit">Body Kit</option>
+                                <option value="Ban">Ban</option>
                             </select>
                         </div>
                     </Form.Group>

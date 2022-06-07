@@ -4,7 +4,7 @@ import { faAngleDown, faAngleUp, faArrowDown, faArrowUp, faEdit, faEllipsisH, fa
 import { Col, Row, Nav, Card, Image, Button, Table, Dropdown, ProgressBar, Pagination, ButtonGroup, Form, InputGroup } from '@themesberg/react-bootstrap';
 import { Link, useHistory } from "react-router-dom";
 import { Routes } from "../../routes";
-import {set , ref , onValue, remove} from "firebase/database"
+import {set , ref , onValue, remove ,orderByChild , equalTo , query} from "firebase/database"
 import {db} from "../../Database/config" 
 
 export class EditProduk extends React.Component{
@@ -16,7 +16,7 @@ export class EditProduk extends React.Component{
         }
     }
     componentDidMount(){
-        const dbRef = ref(db,'produk');
+        const dbRef = query(ref(db,'produk'));
         onValue(dbRef, (snapshot)=>{
             let records = [];
             snapshot.forEach(childSnapshot=>{
@@ -39,6 +39,28 @@ export class EditProduk extends React.Component{
 
             return rupiah;
         }
+
+        function myFunction() {
+            // Declare variables
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+          
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+              td = tr[i].getElementsByTagName("td")[0];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }
+            }
+          }
         return (
             <div>
                 <Form>
@@ -47,7 +69,7 @@ export class EditProduk extends React.Component{
                         <Form.Group id="topbarSearch">
                             <InputGroup className="input-group-merge search-bar">
                             <InputGroup.Text><FontAwesomeIcon icon={faSearch} /></InputGroup.Text>
-                            <Form.Control type="text" placeholder="Search" />
+                            <Form.Control type="text" placeholder="Search" id="myInput" onKeyUp={myFunction} />
                         </InputGroup>
                         </Form.Group>
                         </Form>
@@ -65,7 +87,7 @@ export class EditProduk extends React.Component{
                             </Col>
                             </Row>
                         </Card.Header>
-                        <Table responsive className="align-items-center table-flush">
+                        <Table responsive className="align-items-center table-flush" id="myTable">
                             <thead className="thead-light">
                             <tr>
                                 <th scope="col">Nama Produk</th>

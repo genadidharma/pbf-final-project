@@ -60,6 +60,7 @@ export default () => {
                                 <option value="Aksesoris">Aksesoris</option>
                                 <option value="Part Mesin">Part Mesin</option>
                                 <option value="Body Kit">Body Kit</option>
+                                <option value="Ban">Ban</option>
                             </select>
                         </div>
                     </Form.Group>
