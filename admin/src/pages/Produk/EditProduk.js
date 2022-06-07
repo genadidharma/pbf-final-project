@@ -2,12 +2,13 @@ import React, { useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp, faArrowDown, faArrowUp, faEdit, faEllipsisH, faExternalLinkAlt, faEye, faPlus, faSearch, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Nav, Card, Image, Button, Table, Dropdown, ProgressBar, Pagination, ButtonGroup, Form, InputGroup } from '@themesberg/react-bootstrap';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Routes } from "../../routes";
 import {set , ref , onValue, remove} from "firebase/database"
 import {db} from "../../Database/config" 
 
 export class EditProduk extends React.Component{
+
     constructor(){
         super();
         this.state = {
@@ -84,7 +85,7 @@ export class EditProduk extends React.Component{
                                         <td>{convertToRupiah(row.data.hargaProduk)}</td>
                                         <td scope="col">
                                         <ButtonGroup>
-                                            <Button className="btn btn-primary">Edit</Button>
+                                            <Link to={`/updateproduk/${row.data.uuid}`} key={row.data.uuid}><Button className="btn btn-primary" >Edit</Button></Link>
                                             <Button className="btn btn-danger" onClick={()=> handleHapus(row.data.uuid)}>Hapus</Button>
                                         </ButtonGroup>
                                     </td>
