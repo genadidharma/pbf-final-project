@@ -107,7 +107,7 @@ export class EditProduk extends React.Component{
                                         <td>{convertToRupiah(row.data.hargaProduk)}</td>
                                         <td scope="col">
                                         <ButtonGroup>
-                                            <Link to={`/updateproduk/${row.data.uuid}`} key={row.data.uuid}><Button className="btn btn-primary" >Edit</Button></Link>
+                                            <Button className="btn btn-primary" ><Link to={`/updateproduk/${row.data.uuid}`} key={row.data.uuid} className="text-white">Edit</Link></Button>
                                             <Button className="btn btn-danger" onClick={()=> handleHapus(row.data.uuid)}>Hapus</Button>
                                         </ButtonGroup>
                                     </td>
