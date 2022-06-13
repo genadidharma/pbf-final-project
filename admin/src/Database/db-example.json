@@ -1,0 +1,52 @@
+{
+  "produk": {
+    "f84ff1d034a": {
+      "hargaProduk": "20000",
+      "jenisProduk": "Ban",
+      "namaProduk": "Ban Kido",
+      "qtyProduk": "12",
+      "uuid": "f84ff1d034a"
+    }
+  },
+  "transaksi": {
+    "masuk": {
+      "f84ff1d034b": {
+        "produk": {
+          "hargaProduk": "20000",
+          "jenisProduk": "Ban",
+          "namaProduk": "Ban Kido",
+          "qtyProduk": "12",
+          "uuid": "f84ff1d034a"
+        },
+        "qty": 2,
+        "uuid": "f84ff1d034b"
+      },
+      "f84ff1d034d": {
+        "produk": {
+          "hargaProduk": "20000",
+          "jenisProduk": "Ban",
+          "namaProduk": "Ban Kido",
+          "qtyProduk": "12",
+          "uuid": "f84ff1d034a"
+        },
+        "qty": 2,
+        "uuid": "f84ff1d034d"
+      }
+    },
+    "kemas": {
+      "f84ff1d034c": {
+        "produk": {
+          "hargaProduk": "20000",
+          "jenisProduk": "Ban",
+          "namaProduk": "Ban Kido",
+          "qtyProduk": "12",
+          "uuid": "f84ff1d034a"
+        },
+        "qty": 4,
+        "uuid": "f84ff1d034c"
+      }
+    },
+    "kirim": {},
+    "batal": {}
+  }
+}
