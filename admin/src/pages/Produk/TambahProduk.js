@@ -1,35 +1,20 @@
-import React, { Component, useEffect } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown, faAngleUp, faArrowDown, faArrowUp, faEdit, faEllipsisH, faExternalLinkAlt, faEye, faPlus, faSearch, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import { Col, Row, Nav, Card, Image, Button, Table, Dropdown, ProgressBar, Pagination, ButtonGroup, Form, InputGroup } from '@themesberg/react-bootstrap';
-import { set, ref, onValue } from "firebase/database"
-import { db } from "../../Database/config"
-import { uid } from "uid";
+import React, { Component } from "react";
+import { Button, Form } from '@themesberg/react-bootstrap';
+import { ref, set } from "firebase/database";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { uid } from "uid";
+import { db } from "../../Database/config";
 
 export default () => {
     const history = useHistory();
 
-    const [listJenisProduk, setListJenisProduk] = useState([]);
     const [namaProduk, setNamaProduk] = useState("");
     const [jenisProduk, setJenisProduk] = useState("");
     const [qtyProduk, setQtyProduk] = useState("");
     const [hargaProduk, setHargaProduk] = useState("");
-    // const [fotoProduk, setFotoProduk] = useState("");
+    // const [fotoProduk , setFotoProduk] = useState("");
 
-    useEffect(() => {
-        const dbRef = ref(db, 'jenis_produk');
-        onValue(dbRef, (snapshot) => {
-            let records = [];
-            snapshot.forEach(childSnapshot => {
-                let keyName = childSnapshot.key;
-                let data = childSnapshot.val();
-                records.push({ "key": keyName, "data": data });
-            });
-            setListJenisProduk(records)
-        });
-    }, [])
 
     const handleChangeNama = (e) => {
         setNamaProduk(e.target.value);
@@ -43,21 +28,21 @@ export default () => {
     const handleChangeHarga = (e) => {
         setHargaProduk(e.target.value);
     }
+
     // const handleChangeFoto = (e) =>{
     //     setHargaProduk(e.target.files[0]);
     // }
+
     const addToDatabase = () => {
         const uuid = uid();
         set(ref(db, `produk/${uuid}`), {
-            namaProduk: namaProduk,
-            jenisProduk: {
-                uuid: jenisProduk
-            },
-            qtyProduk: qtyProduk,
-            hargaProduk: hargaProduk,
-            uuid: uuid
+            namaProduk,
+            jenisProduk,
+            qtyProduk,
+            hargaProduk,
+            uuid
         });
-        history.push('/editproduk');
+        history.push('/produk');
     };
     return (
         <div>
@@ -71,14 +56,11 @@ export default () => {
                     <div class="input-group">
                         <label class="input-group-text" for="jenisproduk">Options</label>
                         <select class="form-select" id="jenisproduk" onChange={handleChangeJenis}>
-                            <option key={0} defaultValue>Choose...</option>
-                            {
-                                listJenisProduk.map((jenisProduk) => {
-                                    return (
-                                        <option key={jenisProduk.data.uuid} value={jenisProduk.data.uuid}>{jenisProduk.data.nama}</option>
-                                    )
-                                })
-                            }
+                            <option selected>Choose...</option>
+                            <option value="Aksesoris">Aksesoris</option>
+                            <option value="Part Mesin">Part Mesin</option>
+                            <option value="Body Kit">Body Kit</option>
+                            <option value="Ban">Ban</option>
                         </select>
                     </div>
                 </Form.Group>
@@ -96,4 +78,3 @@ export default () => {
         </div>
     )
 }
-

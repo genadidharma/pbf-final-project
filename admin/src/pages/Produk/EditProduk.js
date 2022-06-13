@@ -16,24 +16,14 @@ export class EditProduk extends React.Component {
         }
     }
     componentDidMount() {
-        const produkRef = query(ref(db, 'produk'))
-        onValue(produkRef, (snapshot) => {
+        const dbRef = query(ref(db, 'produk'));
+        onValue(dbRef, (snapshot) => {
             let records = [];
-
-            snapshot.forEach((childSnapshot) => {
+            snapshot.forEach(childSnapshot => {
                 let keyName = childSnapshot.key;
-                let data = childSnapshot.val()
-
+                let data = childSnapshot.val();
                 records.push({ "key": keyName, "data": data });
-
-                let jenisProdukId = childSnapshot.val().jenisProduk.uuid
-                const jenisProdukRef = ref(db, `jenis_produk/${jenisProdukId}`)
-
-                onValue(jenisProdukRef, (grandChildSnapshot) => {
-                    data.jenisProduk.nama = grandChildSnapshot.val().nama
-                })
             });
-
             this.setState({ produkData: records })
         });
     };
@@ -108,24 +98,22 @@ export class EditProduk extends React.Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                {
-                                    this.state.produkData.map((produk) => {
-                                        return (
-                                            <tr key={produk.data.uuid}>
-                                                <td>{produk.data.namaProduk}</td>
-                                                <td>{produk.data.jenisProduk.nama}</td>
-                                                <td>{produk.data.qtyProduk}</td>
-                                                <td>{convertToRupiah(produk.data.hargaProduk)}</td>
-                                                <td scope="col">
-                                                    <ButtonGroup>
-                                                        <Button className="btn btn-primary" ><Link to={`/updateproduk/${produk.data.uuid}`} key={produk.data.uuid} className="text-white">Edit</Link></Button>
-                                                        <Button className="btn btn-danger" onClick={() => handleHapus(produk.data.uuid)}>Hapus</Button>
-                                                    </ButtonGroup>
-                                                </td>
-                                            </tr>
-                                        )
-                                    })
-                                }
+                                {this.state.produkData.map((row) => {
+                                    return (
+                                        <tr>
+                                            <td>{row.data.namaProduk}</td>
+                                            <td>{row.data.jenisProduk}</td>
+                                            <td>{row.data.qtyProduk}</td>
+                                            <td>{convertToRupiah(row.data.hargaProduk)}</td>
+                                            <td scope="col">
+                                                <ButtonGroup>
+                                                    <Button className="btn btn-primary" ><Link to={`/updateproduk/${row.data.uuid}`} key={row.data.uuid} className="text-white">Edit</Link></Button>
+                                                    <Button className="btn btn-danger" onClick={() => handleHapus(row.data.uuid)}>Hapus</Button>
+                                                </ButtonGroup>
+                                            </td>
+                                        </tr>
+                                    )
+                                })}
                             </tbody>
                         </Table>
                     </Card>
