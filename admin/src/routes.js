@@ -1,8 +1,7 @@
 
 export const Routes = {
     // pages
-    Presentation: { path: "/" },
-    DashboardOverview: { path: "/dashboard/overview" },
+    DashboardOverview: { path: "/" },
     Transactions: { path: "/transactions" },
     Settings: { path: "/settings" },
     Upgrade: { path: "/upgrade" },
@@ -16,17 +15,10 @@ export const Routes = {
     Lock: { path: "/examples/lock" },
     NotFound: { path: "/examples/404" },
     ServerError: { path: "/examples/500" },
-    EditProduk: {path: "/editproduk"},
-    TambahProduk: {path: "/editproduk/tambahproduk"},
-    JenisProduk: {path: "/jenis-produk"},
-    TambahJenisProduk: {path: "/jenis-produk/tambah"},
-    HapusJenisProduk: {path: "/jenis-produk/hapus"},
-    EditJenisProduk: {path: "/jenis-produk/edit/:id"},
-    UpdateProduk: {path: "/updateproduk/:id"},
-    TransaksiProduk: {path: "/transaksi"},
-
-
-
+    Produk: { path: "/produk" },
+    TambahProduk: { path: "/produk/tambah" },
+    EditProduk: { path: "/produk/edit/:jenisId/:id" },
+    Transaksi: { path: "/transaksi" },
 
     // docs
     DocsOverview: { path: "/documentation/overview" },

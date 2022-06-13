@@ -4,7 +4,7 @@ import SimpleBar from 'simplebar-react';
 import { useLocation } from "react-router-dom";
 import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faBoxOpen, faChartPie, faCog, faFileAlt, faHandHoldingUsd, faSignOutAlt, faTable, faTimes, faCalendarAlt, faMapPin, faInbox, faRocket , faShoppingBasket, faBoxes, faBox} from "@fortawesome/free-solid-svg-icons";
+import { faBook, faBoxOpen, faChartPie, faCog, faFileAlt, faHandHoldingUsd, faSignOutAlt, faTable, faTimes, faCalendarAlt, faMapPin, faInbox, faRocket, faShoppingBasket, faBoxes, faBox } from "@fortawesome/free-solid-svg-icons";
 import { Nav, Badge, Image, Button, Dropdown, Accordion, Navbar } from '@themesberg/react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -97,12 +97,11 @@ export default (props = {}) => {
               </Nav.Link>
             </div>
             <Nav className="flex-column pt-3 pt-md-0">
-              <NavItem title="Volt React" link={Routes.Presentation.path} image={ReactHero} />
+              <NavItem title="Admin Bengkel" link={Routes.DashboardOverview.path} image={ReactHero} />
 
               <NavItem title="Dashboard" link={Routes.DashboardOverview.path} icon={faChartPie} />
-              <NavItem title="Jenis Produk" icon={faBox} link={Routes.JenisProduk.path} />
-              <NavItem title="Produk" icon={faShoppingBasket} link={Routes.EditProduk.path} />
-              <NavItem title="Transaksi" icon={faHandHoldingUsd} link={Routes.TransaksiProduk.path} />
+              <NavItem title="Produk" icon={faShoppingBasket} link={Routes.Produk.path} />
+              <NavItem title="Transaksi" icon={faHandHoldingUsd} link={Routes.Transaksi.path} />
 
               {/* <CollapsableNavItem eventKey="examples/" title="Transaksi" icon={faHandHoldingUsd}>
                 <NavItem title="Pengeluaran" link={Routes.Signin.path} />
