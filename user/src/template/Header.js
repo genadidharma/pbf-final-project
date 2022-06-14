@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
-import {auth} from '../database/config'
-import {createUserWithEmailAndPassword, signOut , signInWithEmailAndPassword, onAuthStateChanged} from 'firebase/auth'
+import { auth } from '../database/config'
+import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
 
 
 
@@ -20,15 +20,15 @@ function Header() {
       setOpenedDrawer(false)
     }
   }
-  const [user , setUser] = useState({});
-  onAuthStateChanged(auth , (currentUser) => {
-      setUser(currentUser);
+  const [user, setUser] = useState({});
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
   })
-  const logout = async () =>{
+  const logout = async () => {
     await signOut(auth);
     history.push('/')
   }
-  
+
 
   return (
     <header>
@@ -52,10 +52,16 @@ function Header() {
               </li>
             </ul>
             <Link to='/cart'>
-            <button type="button" className="btn btn-outline-dark me-3 d-none d-lg-inline">
-              <FontAwesomeIcon icon={["fas", "shopping-cart"]} />
-              <span className="ms-3 badge rounded-pill bg-dark"></span>
-            </button>
+              <button type="button" className="btn btn-outline-dark me-3 d-none d-lg-inline">
+                <FontAwesomeIcon icon={["fas", "shopping-cart"]} />
+                <span className="ms-3 badge rounded-pill bg-dark"></span>
+              </button>
+            </Link>
+            <Link to='/order-status'>
+              <button type="button" className="btn btn-outline-dark me-3 d-none d-lg-inline">
+                Order
+                <span className="ms-3 badge rounded-pill bg-dark"></span>
+              </button>
             </Link>
             <ul className="navbar-nav mb-2 mb-lg-0">
               <li className="nav-item dropdown">
@@ -78,9 +84,9 @@ function Header() {
                     <div className="text-center">
                       <p>{user?.email}</p>
                       <button className="text-center ml-5 btn btn-danger"
-                        onClick={logout} 
+                        onClick={logout}
                       >
-                      Logout
+                        Logout
                       </button>
                     </div>
                   </li>
@@ -90,15 +96,15 @@ function Header() {
           </div>
 
           <div className="d-inline-block d-lg-none">
-          <Link to="/cart">
-            <button type="button" className="btn btn-outline-dark">
-              <FontAwesomeIcon icon={["fas", "shopping-cart"]} />
-            </button>
-          </Link>
-
-              <button className="navbar-toggler p-0 border-0 ms-3" type="button" onClick={toggleDrawer}>
-                <span className="navbar-toggler-icon"></span>
+            <Link to="/cart">
+              <button type="button" className="btn btn-outline-dark">
+                <FontAwesomeIcon icon={["fas", "shopping-cart"]} />
               </button>
+            </Link>
+
+            <button className="navbar-toggler p-0 border-0 ms-3" type="button" onClick={toggleDrawer}>
+              <span className="navbar-toggler-icon"></span>
+            </button>
           </div>
         </div>
       </nav>

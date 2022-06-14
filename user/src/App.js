@@ -7,6 +7,7 @@ import Cart from "./cart/CartList";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import {auth} from './database/config'
+import OrderStatus from "./orders/OrderStatus";
 
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
         </Route>
         <Route path="/cart" exact>
           <Cart />
+        </Route>
+        <Route path="/order-status" exact>
+          <OrderStatus />
         </Route>
       </Switch>
     </Template>

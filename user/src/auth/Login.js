@@ -30,7 +30,7 @@ const Login = () => {
                     <div class="card-body">
                         <blockquote class="blockquote mb-0">
                             <p>Username</p>
-                            <input className="form-control" placeholder="Username" type="text"
+                            <input className="form-control" placeholder="Email" type="text"
                                 onChange={(event) =>{ setLoginEmail(event.target.value);
                             }}
                             ></input>
