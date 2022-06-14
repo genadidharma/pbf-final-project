@@ -9,6 +9,8 @@ import {set , ref , onValue, remove ,orderByChild , equalTo , query, update} fro
 import {db} from "../database/config"; 
 import React, { useEffect } from "react";
 import Cart from "./Cart";
+import {auth} from '../database/config'
+
 
 
 export class CartList extends React.Component{
@@ -20,7 +22,7 @@ export class CartList extends React.Component{
         }
     }
     componentDidMount(){
-        const dbRef = query(ref(db,'cart'));
+        const dbRef = query(ref(db,'cart') , orderByChild('emailUser') , equalTo(auth.currentUser.email));
         onValue(dbRef, (snapshot)=>{
             let records = [];
             snapshot.forEach(childSnapshot=>{

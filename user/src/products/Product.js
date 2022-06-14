@@ -6,6 +6,7 @@ import {set , ref , onValue, remove ,orderByChild , equalTo , query, get, child,
 import {db} from "../database/config"; 
 import React, { useEffect } from "react";
 import {uid} from "uid";
+import {auth} from '../database/config'
 
 
 function Product(props) {
@@ -42,7 +43,8 @@ function Product(props) {
               jenisProduk : variable.jenisProduk,
               qtyProduk : qtySekarang+1,
               hargaProduk : variable.hargaProduk,
-              idCart : uuid
+              idCart : uuid,
+              emailUser : auth.currentUser.email
           });
       })
     });

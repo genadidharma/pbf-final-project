@@ -9,7 +9,6 @@ import {set , ref , onValue, remove ,orderByChild , equalTo , query} from "fireb
 import {db} from "../database/config"; 
 import React, { useEffect } from "react";
 
-
 const brands = ["Apple", "Samsung", "Google", "HTC"];
 
 

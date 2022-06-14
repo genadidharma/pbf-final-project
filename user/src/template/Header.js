@@ -1,11 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
+import {auth} from '../database/config'
+import {createUserWithEmailAndPassword, signOut , signInWithEmailAndPassword, onAuthStateChanged} from 'firebase/auth'
+
+
 
 function Header() {
 
   const [openedDrawer, setOpenedDrawer] = useState(false)
 
+  const history = useHistory();
   function toggleDrawer() {
     setOpenedDrawer(!openedDrawer);
   }
@@ -15,13 +20,21 @@ function Header() {
       setOpenedDrawer(false)
     }
   }
+  const [user , setUser] = useState({});
+  onAuthStateChanged(auth , (currentUser) => {
+      setUser(currentUser);
+  })
+  const logout = async () =>{
+    await signOut(auth);
+    history.push('/')
+  }
   
 
   return (
     <header>
       <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-white border-bottom">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/" onClick={changeNav}>
+          <Link className="navbar-brand" to="/productlist" onClick={changeNav}>
             <FontAwesomeIcon
               icon={["fab", "bootstrap"]}
               className="ms-1"
@@ -33,7 +46,7 @@ function Header() {
           <div className={"navbar-collapse offcanvas-collapse " + (openedDrawer ? 'open' : '')}>
             <ul className="navbar-nav me-auto mb-lg-0">
               <li className="nav-item">
-                <Link to="/" className="nav-link" replace onClick={changeNav}>
+                <Link to="/productlist" className="nav-link" replace onClick={changeNav}>
                   List Product
                 </Link>
               </li>
@@ -62,14 +75,14 @@ function Header() {
                   aria-labelledby="userDropdown"
                 >
                   <li>
-                    <Link to="/" className="dropdown-item" onClick={changeNav}>
-                      Login
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/" className="dropdown-item" onClick={changeNav}>
-                      Sign Up
-                    </Link>
+                    <div className="text-center">
+                      <p>{user?.email}</p>
+                      <button className="text-center ml-5 btn btn-danger"
+                        onClick={logout} 
+                      >
+                      Logout
+                      </button>
+                    </div>
                   </li>
                 </ul>
               </li>
