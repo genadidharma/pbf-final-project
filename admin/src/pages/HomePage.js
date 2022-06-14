@@ -5,7 +5,6 @@ import Navbar from "../components/Navbar";
 import Preloader from "../components/Preloader";
 // components
 import Sidebar from "../components/Sidebar";
-import EditProduk from "../pages//Produk/EditProduk";
 import { Routes } from "../routes";
 import Accordion from "./components/Accordion";
 import Alerts from "./components/Alerts";
@@ -43,6 +42,7 @@ import Signup from "./examples/Signup";
 import Presentation from "./Presentation";
 import Produk from './Produk/Produk';
 import TambahProduk from './Produk/TambahProduk';
+import EditProduk from './Produk/EditProduk';
 import Settings from "./Settings";
 import BootstrapTables from "./tables/BootstrapTables";
 import Transactions from "./Transactions";

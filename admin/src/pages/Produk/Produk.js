@@ -1,6 +1,6 @@
 import { faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, ButtonGroup, Card, Col, Form, InputGroup, Row, Table } from '@themesberg/react-bootstrap';
+import { Button, ButtonGroup, Card, Col, Form, InputGroup, Row, Table, Image } from '@themesberg/react-bootstrap';
 import { onValue, query, ref, remove } from "firebase/database";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -93,6 +93,7 @@ export class Produk extends React.Component {
                                 <tr>
                                     <th scope="col">Nama Produk</th>
                                     <th scope="col">Jenis Produk</th>
+                                    <th scope="col">Gambar Produk</th>
                                     <th scope="col">QTY</th>
                                     <th scope="col">Harga</th>
                                     <th scope="col">Aksi</th>
@@ -104,11 +105,12 @@ export class Produk extends React.Component {
                                         <tr>
                                             <td>{row.data.namaProduk}</td>
                                             <td>{row.data.jenisProduk}</td>
+                                            <td><Image src={row.data.gambarProduk} width={'200px'}/></td>
                                             <td>{row.data.qtyProduk}</td>
                                             <td>{convertToRupiah(row.data.hargaProduk)}</td>
                                             <td scope="col">
                                                 <ButtonGroup>
-                                                    <Button className="btn btn-primary" ><Link to={`/updateproduk/${row.data.uuid}`} key={row.data.uuid} className="text-white">Edit</Link></Button>
+                                                    <Button className="btn btn-primary" ><Link to={`/produk/edit/${row.data.uuid}`} key={row.data.uuid} className="text-white">Edit</Link></Button>
                                                     <Button className="btn btn-danger" onClick={() => handleHapus(row.data.uuid)}>Hapus</Button>
                                                 </ButtonGroup>
                                             </td>

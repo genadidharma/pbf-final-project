@@ -11,6 +11,7 @@ export default () => {
 
     const [namaProduk, setNamaProduk] = useState("");
     const [jenisProduk, setJenisProduk] = useState("");
+    const [gambarProduk, setGambarProduk] = useState("");
     const [qtyProduk, setQtyProduk] = useState("");
     const [hargaProduk, setHargaProduk] = useState("");
 
@@ -19,6 +20,9 @@ export default () => {
     }
     const handleChangeJenis = (e) => {
         setJenisProduk(e.target.value);
+    }
+    const handleChangeGambar = (e) => {
+        setGambarProduk(e.target.value);
     }
     const handleChangeQty = (e) => {
         setQtyProduk(e.target.value);
@@ -32,6 +36,7 @@ export default () => {
         set(ref(db, `produk/${uuid}`), {
             namaProduk,
             jenisProduk,
+            gambarProduk,
             qtyProduk,
             hargaProduk,
             uuid
@@ -57,6 +62,10 @@ export default () => {
                             <option value="Ban">Ban</option>
                         </select>
                     </div>
+                </Form.Group>
+                <Form.Group className="pt-3">
+                    <label>URL Gambar</label>
+                    <Form.Control type="text" id="gambar" value={gambarProduk} onChange={handleChangeGambar} />
                 </Form.Group>
                 <Form.Group className="pt-3">
                     <label>QTY</label>

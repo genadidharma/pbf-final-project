@@ -17,7 +17,7 @@ export const Routes = {
     ServerError: { path: "/examples/500" },
     Produk: { path: "/produk" },
     TambahProduk: { path: "/produk/tambah" },
-    EditProduk: { path: "/produk/edit/:jenisId/:id" },
+    EditProduk: { path: "/produk/edit/:id" },
     Transaksi: { path: "/transaksi" },
 
     // docs
