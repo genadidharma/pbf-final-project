@@ -50,13 +50,17 @@ export class Transaksi extends React.Component {
     };
 
     render() {
-        const handleStatusBarang = (from, to, produk) => {
-            set(ref(db, `/transaksi/${to}/${produk.uuid}`), {
-                produk: produk.produk,
-                qty: produk.qty,
-                uuid: produk.uuid
+        const handleStatusBarang = (from, to, transaksi) => {
+            set(ref(db, `/transaksi/${to}/${transaksi.uuid}`), {
+                produk: transaksi.produk,
+                qty: transaksi.qty,
+                emailUser: transaksi.emailUser,
+                nama: transaksi.nama,
+                alamat: transaksi.alamat,
+                telepon: transaksi.telepon,
+                uuid: transaksi.uuid
             }).then(() => {
-                remove(ref(db, `/transaksi/${from}/${produk.uuid}`))
+                remove(ref(db, `/transaksi/${from}/${transaksi.uuid}`))
             });
         }
 
@@ -105,6 +109,9 @@ export class Transaksi extends React.Component {
                                             <th scope="col">Nama Produk</th>
                                             <th scope="col">QTY</th>
                                             <th scope="col">Harga</th>
+                                            <th scope="col">Pembeli</th>
+                                            <th scope="col">Alamat</th>
+                                            <th scope="col">Telepon</th>
                                             <th scope="col">Aksi</th>
                                         </tr>
                                     </thead>
@@ -116,6 +123,9 @@ export class Transaksi extends React.Component {
                                                         <td>{transaksi?.produk?.namaProduk}</td>
                                                         <td>{transaksi?.qty}</td>
                                                         <td>{convertToRupiah(transaksi?.produk?.hargaProduk)}</td>
+                                                        <td>{transaksi?.nama}</td>
+                                                        <td>{transaksi?.alamat}</td>
+                                                        <td>{transaksi?.telepon}</td>
                                                         <td scope="col">
                                                             <ButtonGroup>
                                                                 <Button className="btn btn-success" onClick={() => handleStatusBarang("masuk", "kemas", transaksi)}>Kemas</Button>
@@ -136,6 +146,9 @@ export class Transaksi extends React.Component {
                                             <th scope="col">Nama Produk</th>
                                             <th scope="col">QTY</th>
                                             <th scope="col">Harga</th>
+                                            <th scope="col">Pembeli</th>
+                                            <th scope="col">Alamat</th>
+                                            <th scope="col">Telepon</th>
                                             <th scope="col">Aksi</th>
                                         </tr>
                                     </thead>
@@ -147,6 +160,9 @@ export class Transaksi extends React.Component {
                                                         <td>{transaksi?.produk?.namaProduk}</td>
                                                         <td>{transaksi?.qty}</td>
                                                         <td>{convertToRupiah(transaksi?.produk?.hargaProduk)}</td>
+                                                        <td>{transaksi?.nama}</td>
+                                                        <td>{transaksi?.alamat}</td>
+                                                        <td>{transaksi?.telepon}</td>
                                                         <td scope="col">
                                                             <ButtonGroup>
                                                                 <Button className="btn btn-success" onClick={() => handleStatusBarang("kemas", "kirim", transaksi)}>Kirim</Button>
@@ -167,6 +183,9 @@ export class Transaksi extends React.Component {
                                             <th scope="col">Nama Produk</th>
                                             <th scope="col">QTY</th>
                                             <th scope="col">Harga</th>
+                                            <th scope="col">Pembeli</th>
+                                            <th scope="col">Alamat</th>
+                                            <th scope="col">Telepon</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -177,6 +196,9 @@ export class Transaksi extends React.Component {
                                                         <td>{transaksi?.produk?.namaProduk}</td>
                                                         <td>{transaksi?.qty}</td>
                                                         <td>{convertToRupiah(transaksi?.produk?.hargaProduk)}</td>
+                                                        <td>{transaksi?.nama}</td>
+                                                        <td>{transaksi?.alamat}</td>
+                                                        <td>{transaksi?.telepon}</td>
                                                     </tr>
                                                 )
                                             })
@@ -191,6 +213,9 @@ export class Transaksi extends React.Component {
                                             <th scope="col">Nama Produk</th>
                                             <th scope="col">QTY</th>
                                             <th scope="col">Harga</th>
+                                            <th scope="col">Pembeli</th>
+                                            <th scope="col">Alamat</th>
+                                            <th scope="col">Telepon</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -201,6 +226,9 @@ export class Transaksi extends React.Component {
                                                         <td>{transaksi?.produk?.namaProduk}</td>
                                                         <td>{transaksi?.qty}</td>
                                                         <td>{convertToRupiah(transaksi?.produk?.hargaProduk)}</td>
+                                                        <td>{transaksi?.nama}</td>
+                                                        <td>{transaksi?.alamat}</td>
+                                                        <td>{transaksi?.telepon}</td>
                                                     </tr>
                                                 )
                                             })
