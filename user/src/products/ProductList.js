@@ -94,7 +94,7 @@ export class ProductList extends React.Component {
               >
                 {this.state.produkData.map((row) => {
                   return (
-                    <Product key={row.data.uuid} uuid={row.data.uuid} namaProduk={row.data.namaProduk} jenisProduk={row.data.jenisProduk} hargaProduk={row.data.hargaProduk} qtyProduk={row.data.qtyProduk} />
+                    <Product key={row.data.uuid} uuid={row.data.uuid} namaProduk={row.data.namaProduk} jenisProduk={row.data.jenisProduk} hargaProduk={row.data.hargaProduk} qtyProduk={row.data.qtyProduk} gambarProduk={row.data.gambarProduk} />
                   )
                 })}
               </div>
