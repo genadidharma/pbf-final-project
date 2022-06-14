@@ -18,17 +18,17 @@ export default () => {
     const transaksiDikemasRef = query(ref(db, 'transaksi/kemas'))
 
     onValue(produkRef, (snapshot) => {
-      let count = Object.keys(snapshot.val()).length
+      let count = Object.keys((snapshot.val() == null ? {} : snapshot.val())).length
       setJumlahProduk(count)
     })
 
     onValue(transaksiMasukRef, (snapshot) => {
-      let count = Object.keys(snapshot.val()).length
+      let count = Object.keys((snapshot.val() == null ? {} : snapshot.val())).length
       setJumlahPesananMasuk(count)
     })
 
     onValue(transaksiDikemasRef, (snapshot) => {
-      let count = Object.keys(snapshot.val()).length
+      let count = Object.keys((snapshot.val() == null ? {} : snapshot.val())).length
       setJumlahPesananDikemas(count)
     })
   }, [])

@@ -39,9 +39,6 @@ import ResetPassword from "./examples/ResetPassword";
 import ServerError from "./examples/ServerError";
 import Signin from "./examples/Signin";
 import Signup from "./examples/Signup";
-import EditJenisProduk from './JenisProduk/EditJenisProduk';
-import JenisProduk from './JenisProduk/JenisProduk';
-import TambahJenisProduk from './JenisProduk/TambahJenisProduk';
 // pages
 import Presentation from "./Presentation";
 import Produk from './Produk/Produk';
