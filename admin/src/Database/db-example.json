@@ -1,51 +1,49 @@
 {
   "produk": {
     "f84ff1d034a": {
-      "hargaProduk": "20000",
+      "hargaProduk": "780000",
       "jenisProduk": "Ban",
-      "namaProduk": "Ban Kido",
+      "namaProduk": "Ban Dunlop",
+      "gambarProduk": "https://www.dunlop.co.id/files/media/49489d68bd93898eb3a8921b1fbeefd3.png",
       "qtyProduk": "12",
       "uuid": "f84ff1d034a"
+    },
+    "f84ff1d034b": {
+      "hargaProduk": "90000",
+      "jenisProduk": "Part Mesin",
+      "namaProduk": "Oli Top 1 HP",
+      "gambarProduk": "https://cf.shopee.co.id/file/bcf9d764f50b8eae57cea6e91296e07a",
+      "qtyProduk": "35",
+      "uuid": "f84ff1d034b"
+    },
+    "f84ff1d034c": {
+      "hargaProduk": "35000",
+      "jenisProduk": "Part Mesin",
+      "namaProduk": "Busi Mobil NGK DCPREA-9",
+      "gambarProduk": "https://images.tokopedia.net/img/cache/500-square/VqbcmM/2020/10/23/7d1d2a8a-6868-4034-bf15-9b5f42bb3d70.jpg",
+      "qtyProduk": "80",
+      "uuid": "f84ff1d034c"
+    },
+    "f84ff1d034d": {
+      "hargaProduk": "950000",
+      "jenisProduk": "Ban",
+      "namaProduk": "Ban Yokohama",
+      "gambarProduk": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//106/MTA-2965948/yokohama_yokohama-bluearth-rv02-225-50-r18-ban-mobil-_full02.jpg",
+      "qtyProduk": "23",
+      "uuid": "f84ff1d034d"
+    },
+    "f84ff1d034e": {
+      "hargaProduk": "100000",
+      "jenisProduk": "Aksesoris",
+      "namaProduk": "Dashboard Phone Holder",
+      "gambarProduk": "https://images.tokopedia.net/img/cache/500-square/VqbcmM/2021/4/8/8175768f-3568-41a5-a589-1fbe6afe9caf.jpg",
+      "qtyProduk": "45",
+      "uuid": "f84ff1d034e"
     }
   },
   "transaksi": {
-    "masuk": {
-      "f84ff1d034b": {
-        "produk": {
-          "hargaProduk": "20000",
-          "jenisProduk": "Ban",
-          "namaProduk": "Ban Kido",
-          "qtyProduk": "12",
-          "uuid": "f84ff1d034a"
-        },
-        "qty": 2,
-        "uuid": "f84ff1d034b"
-      },
-      "f84ff1d034d": {
-        "produk": {
-          "hargaProduk": "20000",
-          "jenisProduk": "Ban",
-          "namaProduk": "Ban Kido",
-          "qtyProduk": "12",
-          "uuid": "f84ff1d034a"
-        },
-        "qty": 2,
-        "uuid": "f84ff1d034d"
-      }
-    },
-    "kemas": {
-      "f84ff1d034c": {
-        "produk": {
-          "hargaProduk": "20000",
-          "jenisProduk": "Ban",
-          "namaProduk": "Ban Kido",
-          "qtyProduk": "12",
-          "uuid": "f84ff1d034a"
-        },
-        "qty": 4,
-        "uuid": "f84ff1d034c"
-      }
-    },
+    "masuk": {},
+    "kemas": {},
     "kirim": {},
     "batal": {}
   }
